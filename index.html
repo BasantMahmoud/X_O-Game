@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X_O GAME</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+       
+                <div class="cross">
+                    <!-- <img src="/x_gray.png" alt=""> -->
+                </div>
+                <div class="zero">
+                    <!-- <img src="/o_gray.png" alt=""> -->
+                </div>
+           
+        <div class="btn">
+            <div class="cpu">
+                <button id="with-cpu" style="background-color: rgb(233, 139, 17); color:white">NEW GAME (vs CPU)
+                </button>
+            </div>
+            <div class="player">
+                <button id="with-player" style="background-color: green; color:white">NEW GAME (vs PLAYER)
+                </button>
+            </div>
+        </div>
+</div>
+    <script>
+        let player1="O";
+        let player2='X';
+        let cross=document.querySelector('.slider>.cross');
+        let zero =document.querySelector('.slider>.zero')
+        let cpu=document.getElementById('with-cpu');
+        let p2=document.getElementById('with-player');
+
+        cpu.addEventListener('click',function(){
+            sessionStorage.setItem('player1',player1);
+            sessionStorage.setItem('player2',player2);
+            sessionStorage.setItem('with','cpu')
+            window.location.replace("./game.html");
+    
+
+
+        });
+        p2.addEventListener('click',function(){
+            sessionStorage.setItem('player1',player1);
+            sessionStorage.setItem('player2',player2);
+            sessionStorage.setItem('with','p2');
+            window.location.replace("./game.html");
+        });
+
+        console.log(cross);
+        cross.addEventListener('click',function(){
+            player1="X";
+            player2="O";
+            cross.style.backgroundColor='#184685';
+            zero.style.backgroundColor='#192A32';
+        });
+        zero.addEventListener('click',function(){
+            player1="O";
+            player2="X";
+            zero.style.backgroundColor='#184685';
+            cross.style.backgroundColor='#192A32';
+
+        });
+
+    </script>
+</body>
+</html>
